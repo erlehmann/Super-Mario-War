@@ -18,7 +18,7 @@ export DH_OPTIONS
 
 
 
-CFLAGS = -Wall -g -DPREFIXPATH=\\\"/usr/share/smw/\\\"
+CFLAGS = -Wall -g -DPREFIXPATH=\\\"/usr/share/games/smw/\\\"
 
 ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
 	CFLAGS += -O0
