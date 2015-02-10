@@ -94,7 +94,11 @@ int IMG_SavePNG_RW(SDL_Surface *face, SDL_RWops *src)
 	}
 	
 	/* Set error handling. */
+#if PNG_LIBPNG_VER > 10399
+	if (setjmp(png_jmpbuf(png_ptr)))
+#else
 	if (setjmp(png_ptr->jmpbuf))
+#endif
 	{
 		/* If we get here, we had a problem reading the file */
 		IMG_SetError("Error writing the PNG file");
@@ -142,10 +146,10 @@ int IMG_SavePNG_RW(SDL_Surface *face, SDL_RWops *src)
 done:
         if (row_pointers)
 			delete [] row_pointers;
-	
+#if PNG_LIBPNG_VER <= 10399
 	if (info_ptr->palette)
 		delete info_ptr->palette;
-	
+#endif
 	png_destroy_write_struct(&png_ptr, (png_infopp)NULL);
 	
 	
