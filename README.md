@@ -1309,6 +1309,3 @@ As a general rule, if you want to place something, you should click with the lef
 </div>
 
 </div>
-
-###   
-Have fun, and don't forget to [visit our website!](http://smw.72dpiarmy.com)
